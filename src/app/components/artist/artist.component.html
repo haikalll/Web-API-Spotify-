@@ -1,0 +1,22 @@
+<div *ngIf="artist">
+  <header class="artist-header">
+    <div *ngIf="artist.picture">
+      <img class="artist-thumb img-circle" src="{{artist.picture_big}}"/> 
+    </div>
+    <h1>{{artist.name}}</h1>
+  </header>
+</div>
+
+<div *ngIf="albums">
+    <div *ngFor="let album of albums; let i = index">
+      <div class="list-group-item">
+        <div class="well album">
+          <div *ngIf="album.cover_medium">
+            <img class="album-thumb"  src="{{album.cover_medium}}" />
+            <a routerLink="/album/{{album.id}}">{{album.title}}</a>
+            <a class = "btn btn-default btn-block"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

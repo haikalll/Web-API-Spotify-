@@ -1,0 +1,21 @@
+<div *ngIf="album">
+  <header class="album-header">
+    <div *ngIf="album.cover_big">
+      <img class="artist-thumb img-circle" src="{{album.cover_big}}"/> 
+    </div>
+      <h3>{{album.title}}</h3>
+      <h6>{{album.genres?.data[0].name}}</h6>
+  </header>
+
+  <div *ngFor="let track of album.tracks.data; let i = index">
+     <div class="list-group-item">
+        <div style="float:left; width:10%" ><button type="button" class="btn btn-default btn-sm">
+          <a href="{{track.preview}}">
+            <span class="glyphicon glyphicon-play-circle"></span> Play
+          </a>
+        </button>
+      </div>
+      <div><h6>{{track.title}}</h6></div>
+    </div>
+        
+</div>

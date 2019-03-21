@@ -1,0 +1,22 @@
+<h1>Need Music?</h1>
+<p class="lead" style="color: #bf6600">Use ng-Spotify app to browse music that you need..</p>
+<form>
+  <div class="form-group">
+    <input type="text" name="searchStr" [(ngModel)]="searchStr" (keyup)="searchMusic()" class="form-control" placeholder="Search music....." />
+  </div>
+</form>
+
+<div *ngIf="searchRes">
+  <div *ngFor="let res of searchRes; let i = index">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="search-res well">
+          <h5><a routerLink="/artist/{{res.artist.name}}">{{res.artist.name}}</a></h5>
+          <!--<h5><a [routerLink]="['/artist', {{res.artist.name}}]>{{res.artist.name}}</h5>-->
+          <h6>{{res.title}}</h6>
+          <h6>{{res.album.title}}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
